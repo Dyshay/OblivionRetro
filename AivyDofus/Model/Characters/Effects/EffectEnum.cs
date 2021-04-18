@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AivyDofus.Model.Characters.Effects
+{
+    public enum EffectEnum : int
+    {
+        None = -1,
+
+        // Armures
+        AddArmorNeutral = -2,
+        AddArmorEarth = -3,
+        AddArmorFire = -4,
+        AddArmorWater = -5,
+        AddArmorAir = -6,
+
+        Teleport = 4,
+        PushBack = 5,
+        PushFront = 6,
+        Transpose = 8,
+        Evasion = 9,
+        DamageBrut = -7,
+
+        TurnPass = 140,
+
+        MPSteal = 77,
+        MPBonus = 78,
+        EcaflipChance = 79,
+        LifeSteal = 82,
+        APSteal = 84,
+        ChanceSteal = 266,
+        VitalitySteal = 267,
+        AgilitySteal = 268,
+        IntelligenceSteal = 269,
+        WisdomSteal = 270,
+        StrengthSteal = 271,
+
+        DamageLifeWater = 85,
+        DamageLifeEarth = 86,
+        DamageLifeAir = 87,
+        DamageLifeFire = 88,
+        DamageLifeNeutral = 89,
+        DamageDropLife = 90,
+        StealWater = 91,
+        StealEarth = 92,
+        StealAir = 93,
+        StealFire = 94,
+        StealNeutral = 95,
+        DamageWater = 96,
+        DamageEarth = 97,
+        DamageAir = 98,
+        DamageFire = 99,
+        DamageNeutral = 100,
+        AddArmor = 105,
+        AddArmorBis = 265,
+
+        AddReflectDamageItem = 220,
+        ReflectSpell = 106,
+        AddReflectDamage = 107,
+        Heal = 108,
+        SelfDamage = 109,
+        AddLife = 110,
+        AddAP = 111,
+        AddDamage = 112,
+        MultiplyDamage = 114,
+
+        AddAPBis = 120,
+        AddAgility = 119,
+        AddChance = 123,
+        AddDamagePercent = 138,
+        SubDamagePercent = 186,
+        AddDamageCritic = 115,
+        AddDamagePiege = 225,
+        //AddDamagePiegePercent = 225,
+        AddDamagePhysic = 142,
+        AddDamageMagic = 143,
+        AddEchecCritic = 122,
+        AddAPDodge = 160,
+        AddMPDodge = 161,
+        AddStrength = 118,
+        AddInitiative = 174,
+        AddIntelligence = 126,
+        AddInvocationMax = 182,
+        AddMP = 128,
+        AddPO = 117,
+        AddPods = 158,
+        AddProspection = 176,
+        AddWisdom = 124,
+        AddHealCare = 178,
+        AddVitality = 125,
+        SubAgility = 154,
+
+        DamagePerAP = 131,
+        IncreaseSpellDamage = 293,
+        Mastery = 165,
+        POSteal = 320,
+        Punition = 672,
+        Sacrifice = 765,
+
+        SubChance = 152,
+        SubDamage = 164,
+        SubDamageCritic = 171,
+        SubDamageMagic = 172,
+        SubDamagePhysic = 173,
+        SubAPDodge = 162,
+        SubMPDodge = 163,
+        SubStrength = 157,
+        SubInitiative = 175,
+        SubIntelligence = 155,
+        SubAPDodgeable = 101,
+        SubMPDodgeable = 127,
+        SubAP = 168,
+        SubMP = 169,
+        SubPO = 116,
+        SubPods = 159,
+        SubProspection = 177,
+        SubWisdom = 156,
+        SubHealCare = 179,
+        SubVitality = 153,
+
+        InvocDouble = 180,
+        Invocation = 181,
+        InvocationStatic = 185,
+
+        AddReduceDamagePhysic = 183,
+        AddReduceDamageMagic = 184,
+
+        AddReduceDamagePercentWater = 211,
+        AddReduceDamagePercentEarth = 210,
+        AddReduceDamagePercentAir = 212,
+        AddReduceDamagePercentFire = 213,
+        AddReduceDamagePercentNeutral = 214,
+        AddReduceDamagePercentPvPWater = 251,
+        AddReduceDamagePercentPvPEarth = 250,
+        AddReduceDamagePercentPvPAir = 252,
+        AddReduceDamagePercentPvPFire = 253,
+        AddReduceDamagePercentPvPNeutral = 254,
+
+        AddReduceDamageWater = 241,
+        AddReduceDamageEarth = 240,
+        AddReduceDamageAir = 242,
+        AddReduceDamageFire = 243,
+        AddReduceDamageNeutral = 244,
+        AddReduceDamagePvPWater = 261,
+        AddReduceDamagePvPEarth = 260,
+        AddReduceDamagePvPAir = 262,
+        AddReduceDamagePvPFire = 263,
+        AddReduceDamagePvPNeutral = 264,
+
+        SubReduceDamagePercentWater = 216,
+        SubReduceDamagePercentEarth = 215,
+        SubReduceDamagePercentAir = 217,
+        SubReduceDamagePercentFire = 218,
+        SubReduceDamagePercentNeutral = 219,
+        SubReduceDamagePercentPvPWater = 255,
+        SubReduceDamagePercentPvPEarth = 256,
+        SubReduceDamagePercentPvPAir = 257,
+        SubReduceDamagePercentPvPFire = 258,
+        SubReduceDamagePercentPvpNeutral = 259,
+        SubReduceDamageWater = 246,
+        SubReduceDamageEarth = 245,
+        SubReduceDamageAir = 247,
+        SubReduceDamageFire = 248,
+        SubReduceDamageNeutral = 249,
+
+        PandaCarrier = 50,
+        PandaLaunch = 51,
+        Perception = 202,
+        ChangeSkin = 149,
+        SpellBoost = 293,
+        UseTrap = 400,
+        UseGlyph = 401,
+        DoNothing = 666,
+        PushFear = 783,
+        AddChatiment = 788,
+        AddState = 950,
+        RemoveState = 951,
+        Stealth = 150,
+        DeleteAllBonus = 132,
+
+        /* Potion rappel */
+        TeleportSavedZaap = 600,
+
+        /* Parchemins */
+        AddJob = 603,
+        AddSpell = 604,
+        AddExperience = 605,
+        AddCaractStrength = 607,
+        AddCaractWisdom = 678,
+        AddCaractChance = 608,
+        AddCaractAgility = 609,
+        AddCaractVitality = 610,
+        AddCaractIntelligence = 611,
+        AddCaractPoint = 612,
+        AddSpellPoint = 613,
+
+        /* Gateaux */
+        AddEnergy = 139,
+
+        /* Bourses */
+        AddKamas = 194,
+
+        /* Bonbons boosts combats */
+        AddBoost = 811,
+
+        InvocationInformations = 628,
+
+        SoulStoneStats = 705,
+        MountCaptureProba = 706,
+
+        SoulCaptureBonus = 750,
+        MountExpBonus = 751,
+
+        RenameGuild = 725,
+
+
+        LastEat = 808,
+
+        LaunchFight = 905,
+
+        AlignmentChange = 188,
+        AlignmentId = 960,
+        AlignmentGrade = 961,
+        TargetLevel = 962,
+        CreateTime = 963,
+        TargetName = 964,
+
+        LivingGfxId = 970,
+        LivingMood = 971,
+        LivingSkin = 972,
+        LivingType = 973,
+        LivingXp = 974,
+
+        CanBeExchange = 983,
+        MadeBy = 988,
+        Owner = 987,
+        MountOwner = 996,
+        Name = 997,
+
+        /* ACTION SPECIALES BDD SCRIPT */
+        BddDialogReply = 2000,
+        BddDialogLeave = 2001,
+        BddOpenBank = 2002,
+        BddAddStatistic = 2003,
+        BddAddItem = 2004,
+        BddTeleport = 2005,
+        BddResetStats = 2006,
+        BddResetSpells = 2007,
+        BddAddJob = 2008,
+        BddRemoveItem = 2009,
+        BddCreateGuild = 2010,
+        BddLaunchFight = 2011,
+    }
+}

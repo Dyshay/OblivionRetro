@@ -1,0 +1,184 @@
+﻿<mah:MetroWindow x:Class="Oblivion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:vmSettings="clr-namespace:Oblivion.ViewModel.Settings"
+        xmlns:viewSettings="clr-namespace:Oblivion.View.Settings"
+        xmlns:vm="clr-namespace:Oblivion.ViewModel"
+        xmlns:vmCharacter="clr-namespace:Oblivion.ViewModel.Character"
+        xmlns:viewCharacter="clr-namespace:Oblivion.View.Character"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:Oblivion"
+        mc:Ignorable="d"
+        Title="Oblivion" Height="450" Width="800" DataContext="{StaticResource Main}" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800" ResizeMode="NoResize">
+    <mah:MetroWindow.Resources>
+        <DataTemplate DataType="{x:Type vmSettings:SettingViewModel}">
+            <viewSettings:SettingView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmCharacter:CharacterViewModel}">
+            <viewCharacter:CharacterView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmCharacter:InventoryViewModel}">
+            <viewCharacter:InventoryView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmCharacter:MagicForgeViewModel}">
+            <viewCharacter:MagicForgeView/>
+        </DataTemplate>
+    </mah:MetroWindow.Resources>
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Command="{Binding RequestLogWindow}"  Content="Logs" Visibility="{Binding LogViewModel.CanHide, Converter={StaticResource VisibilityBoolConverter}}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconModern Width="22"
+                                        Height="22"
+                                        VerticalAlignment="Center"
+                                        Kind="WindowCasement" />
+                            <TextBlock Margin="4 0 0 0"
+                         VerticalAlignment="Center"
+                         Text="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <Button Command="{Binding RequestSettingWindow}"  Content="Settings" Visibility="{Binding SettingViewModel.CanHide, Converter={StaticResource VisibilityBoolConverter}}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconModern Width="22"
+                                        Height="22"
+                                        VerticalAlignment="Center"
+                                        Kind="Settings" />
+                            <TextBlock Margin="4 0 0 0"
+                         VerticalAlignment="Center"
+                         Text="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="#d9d9d9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Background="#778ca3">
+                <Button Margin="5 5"  Command="{Binding RequestConnection}" Visibility="{Binding AccountIsConnected, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource VisibilityBoolConverter}}">Se connecter</Button>
+            <ListBox Grid.Column="0" Grid.Row="0" Background="#778ca3" SelectedItem="{Binding SelectedView}" SelectedIndex="0">
+                    <ListBox.ItemContainerStyle>
+                        <Style>
+                            <Style.Triggers>
+                                <Trigger Property="ItemsControl.IsMouseOver" Value="True">
+                                    <Setter Property="TextElement.Foreground" Value="AliceBlue"/>
+                                    <Setter Property="ItemsControl.Background" Value="White"/>
+                                </Trigger>
+                                    <Trigger Property="Selector.IsSelected" Value="False">
+                                    <Setter Property="ItemsControl.Margin" Value="0 0"/>
+                                    <Setter Property="ItemsControl.Padding" Value="10"/>
+                                    <Setter Property="ItemsControl.Background" Value="White"/>
+                                </Trigger>
+                                <Trigger Property="Selector.IsSelected" Value="True">
+                                    <Setter Property="ItemsControl.Margin" Value="0 5"/>
+                                    <Setter Property="ItemsControl.Padding" Value="10"/>
+                                    <Setter Property="ItemsControl.Background" Value="#778ca3"/>
+                                    <Setter Property="TextElement.Foreground" Value="AliceBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                <!--<ListBoxItem x:Name="Console">
+                    <StackPanel Orientation="Horizontal">
+                        --><!--<Image Source="{StaticResource ConsoleIcon}" Width="15" Height="15"/>--><!--
+                        <TextBlock Margin="10 0 0 0">Console</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>-->
+                <ListBoxItem x:Name="Character">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="{StaticResource CharacterIcon}" Width="15" Height="15"/>-->
+                        <TextBlock Margin="10 0 0 0">Personnage</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="Inventory">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="{StaticResource InventoryIcon}" Width="15" Height="15"/>-->
+                        <TextBlock Margin="10 0 0 0">Inventaire</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="Spell">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="{StaticResource SpellIcon}" Width="15" Height="15"/>-->
+                        <TextBlock Margin="10 0 0 0">Sort</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="Job">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="{StaticResource JobIcon}" Width="15" Height="15"/>-->
+                        <TextBlock Margin="10 0 0 0">Métier</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="Fight">
+                    <StackPanel Orientation="Horizontal">
+                        <!--<Image Source="{StaticResource FightIcon}" Width="15" Height="15"/>-->
+                        <TextBlock Margin="10 0 0 0">Combat</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                    <ListBoxItem x:Name="Forgemagie">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Source="{StaticResource FightIcon}" Width="15" Height="15"/>-->
+                            <TextBlock Margin="10 0 0 0">Forgemagie</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="Legit">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<Image Source="{StaticResource FightIcon}" Width="15" Height="15"/>-->
+                            <TextBlock Margin="10 0 0 0">Legit Mode</TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <!--<ListBoxItem x:Name="Map">
+                    <StackPanel Orientation="Horizontal">
+                        --><!--<Image Source="{StaticResource MapIcon}" Width="15" Height="15"/>--><!--
+                        <TextBlock Margin="10 0 0 0">Carte</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>-->
+                <!--<ListBoxItem x:Name="Option">
+                    <StackPanel Orientation="Horizontal">
+                        --><!--<Image Source="{StaticResource SettingIcon}" Width="15" Height="15"/>--><!--
+                        <TextBlock Margin="10 0 0 0">Options</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>
+                <ListBoxItem x:Name="Debug">
+                    <StackPanel Orientation="Horizontal">
+                        --><!--<Image Source="{StaticResource DebugIcon}" Width="15" Height="15"/>--><!--
+                        <TextBlock Margin="10 0 0 0">Debug</TextBlock>
+                    </StackPanel>
+                </ListBoxItem>-->
+            </ListBox>
+            </StackPanel>
+            <mah:ContentControlEx Grid.Column="1" Content="{Binding CurrentView}" />
+        </Grid>
+        <Grid Grid.Row="1" Background="#83919f">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding State}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="{Binding Kamas, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="{Binding Level, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="{Binding Pods}" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="{Binding Vitality}" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock/>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oblivion", "Oblivion\Oblivion.csproj", "{7693C448-2341-4BE8-B88D-E22908FADBC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketHook", "..\..\..\Desktop\Aivy\AivyCore - Copie\SocketHook\SocketHook.csproj", "{EB3FCA74-D359-4356-AFA9-EA23709AE810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AivyCore", "..\..\..\Desktop\Aivy\AivyCore - Copie\AivyCore\AivyCore.csproj", "{6208D306-93D9-41C8-B371-BEEADC2BB95F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AivyData", "..\..\..\Desktop\Aivy\AivyCore - Copie\AivyData\AivyData.csproj", "{76695E05-C9C5-4E1F-A132-6AB9E5A0028A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AivyDofus", "..\..\..\Desktop\Aivy\AivyCore - Copie\AivyDofus\AivyDofus.csproj", "{36DFA665-7400-49DA-99FA-C72A2B7BFE24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AivyDomain", "..\..\..\Desktop\Aivy\AivyCore - Copie\AivyDomain\AivyDomain.csproj", "{0BC7242B-7BB6-4448-B1DA-946FD07C4D9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7693C448-2341-4BE8-B88D-E22908FADBC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7693C448-2341-4BE8-B88D-E22908FADBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7693C448-2341-4BE8-B88D-E22908FADBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7693C448-2341-4BE8-B88D-E22908FADBC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3FCA74-D359-4356-AFA9-EA23709AE810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3FCA74-D359-4356-AFA9-EA23709AE810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3FCA74-D359-4356-AFA9-EA23709AE810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3FCA74-D359-4356-AFA9-EA23709AE810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6208D306-93D9-41C8-B371-BEEADC2BB95F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6208D306-93D9-41C8-B371-BEEADC2BB95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6208D306-93D9-41C8-B371-BEEADC2BB95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6208D306-93D9-41C8-B371-BEEADC2BB95F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76695E05-C9C5-4E1F-A132-6AB9E5A0028A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76695E05-C9C5-4E1F-A132-6AB9E5A0028A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76695E05-C9C5-4E1F-A132-6AB9E5A0028A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76695E05-C9C5-4E1F-A132-6AB9E5A0028A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36DFA665-7400-49DA-99FA-C72A2B7BFE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DFA665-7400-49DA-99FA-C72A2B7BFE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DFA665-7400-49DA-99FA-C72A2B7BFE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DFA665-7400-49DA-99FA-C72A2B7BFE24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC7242B-7BB6-4448-B1DA-946FD07C4D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC7242B-7BB6-4448-B1DA-946FD07C4D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC7242B-7BB6-4448-B1DA-946FD07C4D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC7242B-7BB6-4448-B1DA-946FD07C4D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C0F78DB-9F25-4BF8-9A32-1C6AF476ECEA}
+	EndGlobalSection
+EndGlobal
